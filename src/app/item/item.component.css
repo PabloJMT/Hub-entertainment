@@ -1,0 +1,37 @@
+/* Imagen del elemento */
+.item img {
+    width: 10%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Detalles del elemento */
+.details {
+    margin-top: 10px;
+}
+
+.details h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.details p {
+    color: #666;
+    margin: 0;
+}
+
+
+.buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+/*Change the style for background */
+.buttons button:hover {
+    background-color: #0056b3;
+}
