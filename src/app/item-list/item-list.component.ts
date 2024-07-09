@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ItemService, Item  } from '../item.service';
 import { ItemComponent } from '../item/item.component';
 import { CommonModule } from '@angular/common';
-import { title } from 'process';
+
 
 @Component({
   selector: 'app-item-list',
@@ -10,33 +12,17 @@ import { title } from 'process';
   templateUrl: './item-list.component.html',
   styleUrl: './item-list.component.css'
 })
-export class ItemListComponent {
-  items = [
-    {
-      image: 'https://m.media-amazon.com/images/M/MV5BMGE1ZTQ0ZTEtZTEwZS00NWE0LTlmMDUtMTE1ZWJiZTYzZTQ2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
-      title: 'Titulo 1',
-      description: 'Descripcion peli 1'
-    },
+export class ItemListComponent implements OnInit {
 
-    {
-      image: 'https://m.media-amazon.com/images/M/MV5BMGE1ZTQ0ZTEtZTEwZS00NWE0LTlmMDUtMTE1ZWJiZTYzZTQ2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
-      title: 'Titulo 2',
-      description: 'Descripcion peli 2'
-    },
+  items$: Observable<Item[]> | undefined;
 
-    {
-      image: 'https://m.media-amazon.com/images/M/MV5BMGE1ZTQ0ZTEtZTEwZS00NWE0LTlmMDUtMTE1ZWJiZTYzZTQ2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
-      title: 'Titulo 3',
-      description: 'Descripcion peli 3'
-    },
+  constructor(private ItemService: ItemService){
     
-    {
-      Image: 'https://m.media-amazon.com/images/M/MV5BMGE1ZTQ0ZTEtZTEwZS00NWE0LTlmMDUtMTE1ZWJiZTYzZTQ2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
-      title: 'Titulo 4',
-      description: 'Descripcion peli 4'
-    },
+  }
 
-  ]
+ngOnInit(): void {
+    this.items$ = this.ItemService.getItems(); 
+}
 
 
 }

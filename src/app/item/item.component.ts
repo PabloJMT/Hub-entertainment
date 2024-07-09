@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { title } from 'process';
+import { Item } from '../item.service';
 
 @Component({
   selector: 'app-item',
@@ -8,7 +10,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './item.component.css'
 })
 export class ItemComponent {
-  @Input() item: any
+  @Input() item: Item = {
+    id: 0, 
+    image: '', 
+    title: '',
+    description: '',
+
+  }; 
 
   visibility: boolean = true; 
 
